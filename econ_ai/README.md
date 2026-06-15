@@ -1,7 +1,7 @@
 # Coding with AI (for Economics Students)
 
 Setup and writing guides for Clark University Economics courses `ECON206` and `ECON10`.
-Part of the [Teaching hub](https://kensukesuzuki04.github.io/teaching/).
+Part of the [Teaching page](https://kensukesuzuki04.github.io/teaching/).
 
 ## Start Here
 

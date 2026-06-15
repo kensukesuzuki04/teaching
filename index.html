@@ -4,69 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teaching · Kensuke Suzuki</title>
-<meta name="description" content="Teaching hub for Kensuke Suzuki, Department of Economics, Clark University.">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --navy:#1a365d; --blue:#2b6cb0; --accent:#3182ce; --light:#ebf8ff; --gray:#718096; --bg:#f7fafc; }
-body { font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, sans-serif;
-       background:var(--bg); color:#2d3748; line-height:1.65; }
-nav { background:var(--navy); padding:.9rem 2rem; display:flex; align-items:center; justify-content:space-between; }
-.nav-brand { color:#fff; font-weight:700; font-size:1rem; text-decoration:none; }
-.nav-links a { color:rgba(255,255,255,.82); text-decoration:none; font-size:.88rem; font-weight:500; margin-left:1.4rem; }
-.nav-links a:hover { color:#fff; }
-.hero { background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%); color:#fff; padding:3.5rem 2rem; text-align:center; }
-.hero h1 { font-size:clamp(1.6rem,4vw,2.4rem); font-weight:700; margin-bottom:.4rem; }
-.hero p { opacity:.85; }
-main { max-width:880px; margin:0 auto; padding:3rem 2rem; }
-.cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.2rem; }
-.card { background:#fff; border-radius:10px; padding:1.4rem; box-shadow:0 1px 4px rgba(0,0,0,.06);
-        text-decoration:none; color:inherit; transition:transform .15s, box-shadow .15s; border-left:4px solid var(--accent); display:block; }
-.card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.1); }
-.card .icon { font-size:1.9rem; margin-bottom:.5rem; }
-.card .name { font-weight:700; color:var(--navy); font-size:1.02rem; }
-.card .desc { font-size:.85rem; color:var(--gray); margin-top:.25rem; }
-footer { text-align:center; padding:2rem; font-size:.82rem; color:var(--gray); border-top:1px solid var(--light); }
-</style>
+<meta name="description" content="Teaching page for Kensuke Suzuki, Department of Economics, Clark University.">
+<link rel="icon" type="image/png" href="assets/clark-favicon.png">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-<nav>
-  <a class="nav-brand" href="https://kensukesuzuki04.github.io/">Kensuke Suzuki</a>
-  <div class="nav-links">
-    <a href="https://kensukesuzuki04.github.io/">Home</a>
-    <a href="https://kensukesuzuki04.github.io/#research">Research</a>
-  </div>
-</nav>
 
-<div class="hero">
-  <h1>Teaching</h1>
-  <p>Course materials and resources · Department of Economics, Clark University</p>
-</div>
-
-<main>
-  <div class="cards">
-    <a class="card" href="undergrad/">
-      <div class="icon">🎓</div>
-      <div class="name">Undergraduate</div>
-      <div class="desc">Majoring in Economics — labor-market outcomes by major, course materials &amp; syllabi.</div>
-    </a>
-    <a class="card" href="phd/">
-      <div class="icon">📐</div>
-      <div class="name">Ph.D.</div>
-      <div class="desc">Graduate course materials and the internal PhD program tools.</div>
-    </a>
-    <a class="card" href="econ_data/docs/">
-      <div class="icon">📊</div>
-      <div class="name">Econ Data</div>
-      <div class="desc">Interactive economic data visualizations for ECON10 &amp; ECON206.</div>
-    </a>
-    <a class="card" href="econ_ai/">
-      <div class="icon">🤖</div>
-      <div class="name">Coding with AI</div>
-      <div class="desc">Setup, Quarto, GitHub Copilot, and token-saving guides.</div>
-    </a>
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="site-title" href="https://kensukesuzuki04.github.io/">Kensuke Suzuki</a>
+    <nav class="site-nav">
+      <a href="https://kensukesuzuki04.github.io/">Home</a>
+      <a href="https://kensukesuzuki04.github.io/publications/">Publications</a>
+      <a href="https://kensukesuzuki04.github.io/teaching/">Teaching</a>
+    </nav>
   </div>
+</header>
+
+<main class="page">
+  <h1 class="page__title">Teaching</h1>
+  <p class="page__lead">Course materials and resources · Department of Economics, Clark University</p>
+
+  <ul class="list">
+    <li>
+      <a class="item-title" href="undergrad/">Undergraduate</a>
+      <div class="item-desc">Majoring in Economics — labor-market outcomes by major, course materials and syllabi.</div>
+    </li>
+    <li>
+      <a class="item-title" href="phd/">Ph.D.</a>
+      <div class="item-desc">Graduate course materials and the internal PhD program tools.</div>
+    </li>
+    <li>
+      <a class="item-title" href="econ_data/docs/">Econ Data</a>
+      <div class="item-desc">Interactive economic data visualizations for ECON10 and ECON206.</div>
+    </li>
+    <li>
+      <a class="item-title" href="econ_ai/">Coding with AI</a>
+      <div class="item-desc">Setup, Quarto, GitHub Copilot, and token-saving guides.</div>
+    </li>
+  </ul>
 </main>
 
-<footer>© 2026 Kensuke Suzuki · Clark University · <a href="https://kensukesuzuki04.github.io/" style="color:var(--accent);text-decoration:none;">Home</a></footer>
+<footer class="site-footer">© 2026 Kensuke Suzuki · Clark University · <a href="https://kensukesuzuki04.github.io/">Home</a></footer>
 </body>
 </html>
