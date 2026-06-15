@@ -1,0 +1,44 @@
+/* Clark University branding for RevealJS slides */
+
+:root {
+  --clark-red: #C8102E;
+  --clark-dark: #1A1A1A;
+  --clark-light-bg: #F8F8F8;
+}
+
+.reveal h1, .reveal h2 {
+  color: var(--clark-red);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.reveal h3 {
+  color: var(--clark-dark);
+  font-size: 1.0em;
+  margin-top: 0.5em;
+}
+
+.reveal .slide-number {
+  color: #888;
+  font-size: 0.7em;
+}
+
+/* Tighten up default padding so charts have more room */
+.reveal section {
+  padding: 10px 40px !important;
+}
+
+.reveal blockquote {
+  border-left: 4px solid var(--clark-red);
+  padding-left: 1em;
+  font-style: normal;
+  background: var(--clark-light-bg);
+  border-radius: 0 6px 6px 0;
+}
+
+.reveal .incremental li {
+  opacity: 0.3;
+}
+.reveal .incremental li.visible {
+  opacity: 1;
+}

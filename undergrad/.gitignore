@@ -1,0 +1,11 @@
+# Quarto intermediate files
+/.quarto/
+*_files/
+*.quarto_ipynb
+
+# Large rendered output — publish via GitHub Actions or gh-pages branch instead
+# slides.html   ← uncomment if you don't want to commit the HTML
+
+# OS
+.DS_Store
+Thumbs.db

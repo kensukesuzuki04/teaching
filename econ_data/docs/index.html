@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Economics Visualizations | Kensuke Suzuki</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.65;
+    }
+
+    header {
+      background: #8b0000;
+      color: #fff;
+      padding: 2.5rem 2rem 2rem;
+      border-bottom: 4px solid #5a0000;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+    }
+    header p {
+      margin-top: 0.35rem;
+      font-size: 0.95rem;
+      opacity: 0.85;
+      font-style: italic;
+    }
+    nav {
+      margin-top: 1.1rem;
+      font-size: 0.88rem;
+    }
+    nav a {
+      color: #ffd0d0;
+      text-decoration: none;
+      margin-right: 1.4rem;
+    }
+    nav a:hover { text-decoration: underline; color: #fff; }
+
+    main {
+      max-width: 860px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8b0000;
+      border-bottom: 1px solid #d0d0d0;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .course-block { margin-bottom: 3.2rem; }
+    .course-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .course-code {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #8b0000;
+    }
+    .course-title {
+      font-size: 1rem;
+      color: #444;
+      font-style: italic;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .chart-section-label {
+      grid-column: 1 / -1;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #555;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #e0e0e0;
+      margin-top: 0.4rem;
+    }
+    .chart-section-label:first-child { margin-top: 0; }
+    .chart-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 1.1rem 1.2rem;
+      color: inherit;
+      transition: box-shadow 0.15s, border-color 0.15s;
+      display: block;
+      position: relative;
+      cursor: pointer;
+    }
+    .chart-card:hover {
+      border-color: #8b0000;
+      box-shadow: 0 2px 10px rgba(139,0,0,0.1);
+    }
+    .chart-card h3 {
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      margin-bottom: 0.3rem;
+    }
+    .chart-card p.desc {
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.45;
+    }
+    .chart-card .tags {
+      margin-top: 0.55rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      background: #f5eded;
+      color: #8b0000;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      margin-right: 0.25rem;
+    }
+    .chart-card .src {
+      margin-top: 0.65rem;
+      padding-top: 0.55rem;
+      border-top: 1px solid #f0f0f0;
+      font-size: 0.74rem;
+      color: #777;
+      line-height: 1.5;
+    }
+    .chart-card .src code {
+      font-size: 0.72rem;
+      background: #f5f5f5;
+      padding: 0.05rem 0.3rem;
+      border-radius: 2px;
+    }
+    .chart-card .src a {
+      color: #1f77b4;
+      text-decoration: none;
+    }
+    .chart-card .src a:hover {
+      text-decoration: underline;
+    }
+
+    .empty {
+      font-size: 0.88rem;
+      color: #999;
+      font-style: italic;
+      padding: 0.6rem 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+      padding: 2.5rem 1rem 3rem;
+      border-top: 1px solid #e8e8e8;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><a href="index.html" style="color:inherit;text-decoration:none;">Economics Data Visualizations</a></h1>
+  <p>Kensuke Suzuki &nbsp;&middot;&nbsp; Department of Economics &nbsp;&middot;&nbsp; Clark University</p>
+  <nav>
+    <a href="../../">&larr; Teaching</a>
+    <a href="https://github.com/kensukesuzuki04/teaching/tree/main/econ_data" target="_blank">GitHub</a>
+  </nav>
+</header>
+
+<main>
+
+  <p class="section-title">Undergraduate Courses</p>
+
+  <!-- ECON 10 -->
+  <div class="course-block" id="econ10">
+    <div class="course-header">
+      <span class="course-code">ECON 10</span>
+      <span class="course-title">Economics and the World Economy</span>
+    </div>
+    <div class="chart-grid">
+
+      <!-- Prices -->
+      <div class="chart-section-label">Prices</div>
+
+      <div class="chart-card" onclick="window.location='econ10/chart_inflation.html'">
+        <h3>Inflation Rate</h3>
+        <p class="desc">Annual CPI inflation for 175 countries, 1960&ndash;2024. Toggle countries, hover for values.</p>
+        <div class="tags">
+          <span class="tag">Line chart</span>
+          <span class="tag">World Bank</span>
+        </div>
+        <div class="src">
+          <a href="https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG" target="_blank" onclick="event.stopPropagation()"><code>FP.CPI.TOTL.ZG</code></a> &mdash; Inflation, consumer prices (annual&nbsp;%)
+        </div>
+      </div>
+
+      <div class="chart-card" onclick="window.location='econ10/chart_inflation_us_historical.html'">
+        <h3>Inflation Rate &mdash; US Long Run (1890&ndash;present)</h3>
+        <p class="desc">US CPI inflation since 1890. Shiller/Yale CPI pre-1948; FRED CPIAUCSL post-1947.</p>
+        <div class="tags">
+          <span class="tag">Line chart</span>
+          <span class="tag">Historical</span>
+          <span class="tag">FRED / Shiller</span>
+        </div>
+        <div class="src">
+          Shiller/Yale CPI &mdash; pre-1948<br>
+          <a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" onclick="event.stopPropagation()"><code>CPIAUCSL</code></a> &mdash; post-1947
+        </div>
+      </div>
+
+      <!-- Labor Market -->
+      <div class="chart-section-label">Labor Market</div>
+
+      <div class="chart-card" onclick="window.location='econ10/chart_unemployment.html'">
+        <h3>Unemployment Rate</h3>
+        <p class="desc">ILO-modeled unemployment for 141 countries, 1991&ndash;2024. Toggle countries, hover for values.</p>
+        <div class="tags">
+          <span class="tag">Line chart</span>
+          <span class="tag">World Bank</span>
+        </div>
+        <div class="src">
+          <a href="https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS" target="_blank" onclick="event.stopPropagation()"><code>SL.UEM.TOTL.ZS</code></a> &mdash; Unemployment, total (% of labor force, ILO estimate)
+        </div>
+      </div>
+
+      <div class="chart-card" onclick="window.location='econ10/chart_unemployment_us_historical.html'">
+        <h3>Unemployment Rate &mdash; US Long Run (1890&ndash;present)</h3>
+        <p class="desc">US unemployment since 1890. Lebergott (1964) estimates pre-1948; FRED UNRATE post-1947.</p>
+        <div class="tags">
+          <span class="tag">Line chart</span>
+          <span class="tag">Historical</span>
+          <span class="tag">FRED / Lebergott</span>
+        </div>
+        <div class="src">
+          Lebergott (1964) &mdash; pre-1948<br>
+          <a href="https://fred.stlouisfed.org/series/UNRATE" target="_blank" onclick="event.stopPropagation()"><code>UNRATE</code></a> &mdash; post-1947
+        </div>
+      </div>
+
+      <div class="chart-card" onclick="window.location='econ10/chart_phillips_us.html'">
+        <h3>Phillips Curve &mdash; United States</h3>
+        <p class="desc">US Phillips curve, 1948&ndash;present, colored by decade. FRED unemployment and CPI.</p>
+        <div class="tags">
+          <span class="tag">Scatter</span>
+          <span class="tag">FRED</span>
+        </div>
+        <div class="src">
+          <a href="https://fred.stlouisfed.org/series/UNRATE" target="_blank" onclick="event.stopPropagation()"><code>UNRATE</code></a> &times;
+          <a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" onclick="event.stopPropagation()"><code>CPIAUCSL</code></a> &mdash; Federal Reserve Bank of St.&nbsp;Louis
+        </div>
+      </div>
+
+      <div class="chart-card" onclick="window.location='econ10/chart_phillips_us_historical.html'">
+        <h3>Phillips Curve &mdash; US Long Run (1890&ndash;present)</h3>
+        <p class="desc">Historical US Phillips curve by decade. Pre-1948: Lebergott (1964) + Shiller CPI. Post-1947: FRED.</p>
+        <div class="tags">
+          <span class="tag">Scatter</span>
+          <span class="tag">Historical</span>
+          <span class="tag">FRED / Shiller</span>
+        </div>
+        <div class="src">
+          Lebergott (1964) &times; Shiller/Yale CPI &mdash; pre-1948<br>
+          <a href="https://fred.stlouisfed.org/series/UNRATE" target="_blank" onclick="event.stopPropagation()"><code>UNRATE</code></a> &times;
+          <a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" onclick="event.stopPropagation()"><code>CPIAUCSL</code></a> &mdash; post-1947
+        </div>
+      </div>
+
+      <div class="chart-card" onclick="window.location='econ10/chart_phillips_oecd.html'">
+        <h3>Phillips Curve &mdash; OECD</h3>
+        <p class="desc">Phillips curve for 32 OECD members, 1960&ndash;2024. OECD harmonized unemployment rates.</p>
+        <div class="tags">
+          <span class="tag">Scatter</span>
+          <span class="tag">OECD / FRED</span>
+        </div>
+        <div class="src">
+          <a href="https://fred.stlouisfed.org/series/LRHUTTTTUSM156S" target="_blank" onclick="event.stopPropagation()"><code>LRHUTTTT{ISO2}M156S</code></a> (FRED/OECD) &times;
+          <a href="https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG" target="_blank" onclick="event.stopPropagation()"><code>FP.CPI.TOTL.ZG</code></a>
+        </div>
+      </div>
+
+      <div class="chart-card" onclick="window.location='econ10/chart_phillips_wb.html'">
+        <h3>Phillips Curve &mdash; World Bank</h3>
+        <p class="desc">Phillips curve for 175 countries, 1991&ndash;2024. World Bank unemployment and CPI data.</p>
+        <div class="tags">
+          <span class="tag">Scatter</span>
+          <span class="tag">World Bank</span>
+        </div>
+        <div class="src">
+          <a href="https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS" target="_blank" onclick="event.stopPropagation()"><code>SL.UEM.TOTL.ZS</code></a> &times;
+          <a href="https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG" target="_blank" onclick="event.stopPropagation()"><code>FP.CPI.TOTL.ZG</code></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ECON 206 -->
+  <div class="course-block" id="econ206">
+    <div class="course-header">
+      <span class="course-code">ECON 206</span>
+      <span class="course-title">Macroeconomic Theory</span>
+    </div>
+    <div class="chart-grid">
+
+      <!-- Production & Factor Markets -->
+      <div class="chart-section-label">Production &amp; Factor Markets</div>
+
+      <div class="chart-card" onclick="window.location='econ206/chart_capital_wage_us.html'">
+        <h3>Real Capital Stock vs. Real Wage &mdash; United States</h3>
+        <p class="desc">Capital per worker vs. real wage per worker, 1950&ndash;2023. Year labels, fitted line, and print&nbsp;preview for problem sets.</p>
+        <div class="tags">
+          <span class="tag">Scatter</span>
+          <span class="tag">PWT 11.0</span>
+        </div>
+        <div class="src">
+          Penn World Tables 11.0 &mdash;
+          <code>rnna</code> &times; <code>emp</code> &times; <code>labsh</code> &times; <code>rgdpna</code>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 Kensuke Suzuki, Clark University. All Rights Reserved.
+</footer>
+
+</body>
+</html>
